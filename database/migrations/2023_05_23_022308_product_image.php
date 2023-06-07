@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('product_image', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->string('path');
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('product');
