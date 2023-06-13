@@ -12,11 +12,11 @@ class product extends Model
     protected $table = 'product';
 
     public function category() {
-        return $this -> belongTo('App\Models\category', 'category_id');
+        return $this -> belongsTo('App\Models\category', 'category_id');
     }
 
     public function user() {
-        return $this -> belongTo('App\Models\User', 'user_id');
+        return $this -> belongsTo('App\Models\User', 'user_id');
     }
 
     public function image() {

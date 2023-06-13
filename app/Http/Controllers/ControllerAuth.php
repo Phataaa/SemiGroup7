@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use Laravel\Socialite\Facades\Socialite;
+
+use Exception;
+
 class ControllerAuth extends Controller
 {
    
@@ -24,12 +28,44 @@ class ControllerAuth extends Controller
         
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
+            if(Auth::user()->role == 'buyer') {
             return redirect()->route('index.home');
+            }
+            if(Auth::user()->role == 'admin'){
+                return redirect()->route('management_user');
+            }
         }
  
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+    public function redirectToGoogle() {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback() {
+        $user = Socialite::driver('google')->stateless()->user();
+        $finduser = User::where('provider_id', $user->id)->first();
+        if($finduser) {
+            $finduser->session()->regenerate();
+            Auth::login($finduser);
+            return redirect()->route('index.home');
+        }
+        else {
+            $newUser = new User;
+            $newUser->provider_name = 'Google';
+            $newUser->provider_id = $user->getId();
+            $newUser->full_name = $user->getName();
+            $newUser->user_name = $user->getName();
+            $newUser->email = $user->getEmail();
+            $newUser->avatar = $user->getAvatar();
+            $newUser->role = 'buyer';
+            $newUser->save();
+
+            Auth::login($newUser);
+            $newUser->session()->regenerate();
+            return redirect()->route('index.home');
+        }
     }
 }

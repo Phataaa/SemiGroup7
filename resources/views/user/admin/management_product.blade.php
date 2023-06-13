@@ -26,7 +26,7 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gender</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Category</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seller</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
@@ -37,7 +37,14 @@
                         <span class="text-secondary text-xs font-weight-bold">{{$product->id}}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{$product->name}}</span>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{$product->name}}</h6>
+                          </div>
+                        </div>
                       </td>
                       {{-- <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">{{$image->path}}</span>
@@ -46,22 +53,22 @@
                         <span class="text-secondary text-xs font-weight-bold" >{{$product->quanity}}</span>
                       </td>
                      <td>
-                      {{"0".$product->brand}}
+                      {{$product->brand}}
                      </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{$product->color}}</span>
+                        <span class="text-secondary text-xs font-weight-bold">@foreach()</span>
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">{{$product->gender}}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{$product->category}}</span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$product->category->name}}</span>
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">{{$product->description}}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{$product->user}}</span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$product->user->user_name}}</span>
                       </td>
                       < <td class="align-middle text-center text-sm">
                         <span class="badge badge-sm bg-gradient-success"> <a href=""> Edit</a></span>

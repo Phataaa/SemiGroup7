@@ -13,10 +13,10 @@ class feedback extends Model
     protected $fillable = ['product_id', 'user_id', 'comment'];
 
     public function user() {
-        return $this -> belongTo('App\Models\User', 'user_id');
+        return $this -> belongsTo('App\Models\User', 'user_id');
     }
     
     public function product() {
-        return $this -> belongTo('App\Models\product', 'product_id');
+        return $this -> belongsTo('App\Models\product', 'product_id');
     }
 }

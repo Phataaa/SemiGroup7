@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\category;
+use App\Models\product;
+use App\Models\product_image;
 class ControllerAdmin extends Controller
 {
     public function management_user() {
@@ -19,5 +21,10 @@ class ControllerAdmin extends Controller
         $Category = category::all();
 
         return view('user.admin.management_category', compact('Category'));
+    }
+    public function management_product() {
+        $Product = product::all();
+        $Product_image = product_image::all();
+        return view('user.admin.management_product', compact('Product', 'Product_image'));
     }
 }

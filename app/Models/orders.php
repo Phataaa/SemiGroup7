@@ -13,6 +13,6 @@ class orders extends Model
     protected $fillable = ['name', 'address', 'date', 'number', 'status_deliver', 'note', 'user_id'];
     
     public function user() {
-        return $this -> belongTo('App\Models\User', 'user_id');
+        return $this -> belongsTo('App\Models\User', 'user_id');
     }
 }

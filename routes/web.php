@@ -49,11 +49,13 @@ Route::post('/Register', [ControllerUser::class, 'store'])->name('register.store
 
 Route::get('Login', [ControllerAuth::class, 'showLogin'])->name('showLogin');
 Route::post('Login', [ControllerAuth::class, 'login'])->name('auth.login');
-
+Route::get('/auth/google', [ControllerAuth::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [ControllerAuth::class, 'handleGoogleCallback']);
 
 Route::group(['prefix'=>'Admin'], function() {
-    Route::get('Management_user', [ControllerAdmin::class, 'management_user'])->name('management_user');
-    Route::get('Management_Category', [ControllerAdmin::class, 'management_category'])->name('management_category');
+    Route::get('management_user', [ControllerAdmin::class, 'management_user'])->name('management_user');
+    Route::get('management_category', [ControllerAdmin::class, 'management_category'])->name('management_category');
+    Route::get('management_product', [ControllerAdmin::class, 'management_product'])->name('management_product');
 });
 
 
@@ -68,7 +70,9 @@ Route::group(['prefix'=>'Product'], function(){
     Route::post('store', [ControllerProduct::class, 'store'])->name('store.product');
 });
 
-Route::group(['prefix'=>'Home'], function() {
-    Route::get('', [ControllerHome::class, 'index'])->name('index.home');
-});
+
+Route::get('Home', [ControllerHome::class, 'index'])->name('index.home');
+Route::get('Slide', [ControllerHome::class, 'slide'])->name('slide.home');
+
+
 // Route::get('Home', [ControllerHome::class, 'index'])->name('index.home');

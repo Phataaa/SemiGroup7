@@ -25,7 +25,7 @@ header ul li {
     font-weight: bold;
 }
 header ul li:nth-of-type(5){
-    margin-right: 600px;
+    margin-right: 450px;
 }
 .slideshow-containerheight{
   width: 100%;
@@ -75,4 +75,38 @@ header ul li:nth-of-type(5){
     height: 80px;
     border-radius: 50%;
   }
-  
+ #account{
+  width: 350px;
+  height: 100px;
+  position: relative;
+  margin-left: 0;
+ }
+ #account i{
+  margin-top: 40px;
+  padding-left: 10px;
+ }
+ #account img{
+  width: 50px;
+  height: 50px;
+  padding-right: 10px;
+  margin-top: 30px;
+  border-radius: 50%;
+ }
+ #account p{
+  padding: auto;
+ }
+ .menu{
+  height: auto;
+  width: 100px;
+  display: block;
+ }
+ .category{
+  float: left;
+  width: 20%;
+  background-color: aqua;
+ }
+ .product{
+  float: right;
+  width: 80%;
+  background-color: red;
+ }

@@ -20,7 +20,6 @@
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 <body>
-    
       @yield('content')
 </body>
 </html>

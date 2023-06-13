@@ -15,6 +15,10 @@ class ControllerHome extends Controller
     {
         return view('home');
     }
+    public function slide()
+    {
+        return view('slide');
+    }
 
     /**
      * Show the form for creating a new resource.

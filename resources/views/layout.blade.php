@@ -18,12 +18,16 @@
             <li>TRẺ EM</li>
             <li>TRẺ SƠ SINH</li>
             <li><i class="fa-solid fa-magnifying-glass"></i></li>
-            <li><i class="fa-solid fa-user"></i></li>
             <li><i class="fa-solid fa-cart-shopping"></i></li>
+            <li id="account">
+                <img src="" alt="1" srcset="">
+                <p>Duc Phat</p>
+                <i class="fa-solid fa-caret-down"></i>
+            </li>
         </ul>
     </header>
-    <div>
+
         @yield('content');
-    </div>
+    
 </body>
 </html>
